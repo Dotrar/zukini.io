@@ -1,0 +1,42 @@
+<html>
+<head>
+<link rel="stylesheet" href="/assets/app.css">
+<script type="text/javascript" src="/assets/app.js"></script>
+</head>
+
+  <body>
+    
+  <p>
+Testing out some new other stuff</p>
+<p>
+This is a little script:</p>
+<pre><code class="bash">#!/usr/bin/env bash
+
+filename=$(date +&quot;week-%U.md&quot;)
+filepath=&quot;$HOME/.journal/$filename&quot;
+
+if [[ -f $filepath ]]; then
+    nvim $filepath
+else
+    echo &quot;Cat into $filepath&quot;
+    cat &lt;&lt;- END &gt; $filepath
+# Week Journal $(date +&quot;%U&quot;)
+
+This week plan:
+
+## Book, articles, and other recommendations
+
+# Chinese sentences
+Monday   |
+Tuesday  |
+Wednesday| 
+Thursday |
+Friday   |
+Saturday |
+END
+    nvim $filepath
+fi;</code></pre>
+
+
+  </body>
+</html>

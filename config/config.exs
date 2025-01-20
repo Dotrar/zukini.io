@@ -13,7 +13,7 @@ config :esbuild,
     }
   ]
 
-config :tainwind,
+config :tailwind,
   version: "3.2.4",
   default: [
     args: ~w(

@@ -1,0 +1,9 @@
+<.layout>
+  <h1>Zukini</h1>
+  <h3>A growing blog</h3>
+  <ul>
+    <li :for={post <- @posts}>
+      <a href={post.path}> <%= post.title %> </a>
+    </li>
+  </ul>
+</.layout>
