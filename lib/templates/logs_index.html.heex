@@ -1,0 +1,11 @@
+<.layout>
+<h2>Logbook</h2>
+<ul>
+<li :for={log <- @logs}>
+      <a href={log.path}>
+      <%= log.date %>
+       <%= log.title %> </a>
+
+</li>
+</ul>
+</.layout>

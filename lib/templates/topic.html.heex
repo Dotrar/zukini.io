@@ -1,0 +1,29 @@
+<.layout>
+<h2> <%= @topic.title %> </h2>
+
+<div
+  :if={@topic.last_updated}>
+    <!-- TODO: body, related topics, last updated, etc-->
+  <p>Last updated: <%= @topic.last_updated %> </p>
+  <p><%= @topic.description %></p>
+</div>
+
+<div :if={ not Enum.empty?(@topic.related_systems)} >
+  <h2> Related systems </h2>
+  <ul>
+    <li :for={system <- @topic.related_systems}>
+      <a href={"/#{system.path}"}> <%= system.title %> </a>
+    </li>
+  </ul>
+</div>
+
+<div :if={ not Enum.empty?(@topic.related_logs)} >
+  <h2> Related log posts </h2>
+  <ul>
+    <li :for={log <- @topic.related_logs }>
+      <a href={"/#{log.path}"}> <%= log.title %> </a>
+    </li>
+  </ul>
+</div>
+
+</.layout>

@@ -1,0 +1,9 @@
+<.layout>
+
+<%= raw @post.body %>
+<ul>
+<li :for={ topic <- @post.topics}>
+  <a href={"/topics/#{topic}.html"}> <%= topic %> </a>
+</li>
+</ul>
+</.layout>

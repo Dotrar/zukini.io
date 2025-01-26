@@ -31,6 +31,9 @@ defmodule Zukini.Publisher do
             |> String.downcase()
             |> convert_body(body, opts)
 
+          # remove the start of the path
+          path = Path.split(path) |> tl() |> Path.join()
+
           builder.build(path, attrs, body)
         end
 

@@ -1,7 +1,7 @@
 %{
   title: "Elixir",
   description: "exploring the elixir language",
-  related: ~W(programming code software),
+  related_topics: ~W(programming code software),
   last_updated: ~D(2025-01-12),
   audience: "Other programmers who are interested in the language or finding what's new"
 }

@@ -1,8 +1,15 @@
 <.layout>
   <h1>Zukini</h1>
   <h3>A growing blog</h3>
+  <h3> Systems </h3>
   <ul>
-    <li :for={post <- @posts}>
+    <li :for={post <- @systems}>
+      <a href={post.path}> <%= post.title %> </a>
+    </li>
+  </ul>
+  <h3> Logs </h3>
+    <ul>
+    <li :for={post <- @logs}>
       <a href={post.path}> <%= post.title %> </a>
     </li>
   </ul>
