@@ -2,3 +2,28 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@tailwind base;
+@tailwind components;
+
+html {
+  @apply font-body antialiased;
+}
+
+@tailwind utilities;
+
+.container {
+  max-width: 600px;
+
+  @screen sm {
+    max-width: 700px;
+  }
+
+  @screen md {
+    max-width: 850px;
+  }
+}
+
+
+li.system-item{
+  border: 1px solid black;
+}

@@ -1,16 +1,20 @@
 <.layout>
-  <h1>Zukini</h1>
-  <h3>A growing blog</h3>
-  <h3> Systems </h3>
+  <p>
+    A systems blog
+  </p>
+  <h1> Latest Logs and developments </h1>
   <ul>
-    <li :for={post <- @systems}>
-      <a href={post.path}> <%= post.title %> </a>
-    </li>
-  </ul>
-  <h3> Logs </h3>
-    <ul>
     <li :for={post <- @logs}>
       <a href={post.path}> <%= post.title %> </a>
     </li>
   </ul>
+  <p> or check out the <a href="/logs">log index</a>.</p>
+  <hr>
+  <h1> Current systems </h1>
+  <ul>
+    <li :for={post <- @systems} class="system-item">
+      <a href={post.path}> <%= post.title %> </a>
+    </li>
+  </ul>
+  <p> or check out the <a href="/systems">systems index</a>.</p>
 </.layout>

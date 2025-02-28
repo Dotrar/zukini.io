@@ -56,8 +56,6 @@ defmodule Zukini.Blog do
   end
 
   defmodule Log do
-    import Zukini.Blog.Checks
-
     defstruct [
       :title,
       :description,
@@ -127,5 +125,9 @@ defmodule Zukini.Blog do
           related_logs: logs
       }
     end)
+  end
+
+  def handle_reload() do
+    Mix.Shell.cmd("mix site.build", &IO.puts/1)
   end
 end

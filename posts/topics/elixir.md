@@ -12,3 +12,5 @@ Elixir is a great programming language that makes it easier for certain, good, p
 I can't opine much at the moment, or atleast, unbiased, because I am using it to write my own SSG!
 
 This is a little bit of an example post i'll touch up later.
+
+I like it 
