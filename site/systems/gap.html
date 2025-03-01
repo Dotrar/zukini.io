@@ -10,7 +10,6 @@
     <meta property="og:locale" content="en_AU">
     <meta property="og:url" content="https://zukini.io">
     <meta name="description" content="Discussing systems, methologies, progress and life choices of the author">
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
     <meta property="og:site_name" content="Zukini Systems">
    
     <link rel="stylesheet" href="/assets/app.css">
@@ -27,22 +26,33 @@
     </script>
     <!--Alpine Js V3-->
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   </head>
-  <body>
-    <h1>Zukini</h1>
-    <main>
+  <body class>
+    <div class='pl-10 pb-4'>
+      <a href="/">
+        <img src="/assets/img/logo-long.png" class="w-1/6 mt-4" alt="logo">
+      </a>
+    </div>
+    <main class="container mx-auto pt-10">
 
-<h2> A post </h2>
+<div class="sm:flex w-full">
+  <div class="post sm:w-4/5 mb-10">
 <p>
 GAP is a “fantasy political party” that I’ve been working on for a little while now; I’m only just starting to get the confidence to put it online and use it as a discussion piece in and of itself.</p>
 <p>
 Largely, it could be thought of as a wishlist of policies, that if a party were available and put these as their agenda, I’d be comfortable with giving them my vote.</p>
 
-<ul>
-  <li>
-    <a href="/topics/politics.html"> politics </a>
-  </li>
-</ul>
+  </div>
+  <div class="topics sm:w-1/5 ml-10 border-lg">
+    <p class="text-md font-bold mb-5">Related topics</p>
+    <ul>
+      <li class="sm:text-right">
+        <a href="/topics/politics.html"> politics </a>
+      </li>
+    </ul>
+  </div>
+</div>
 
     </main>
   </body>

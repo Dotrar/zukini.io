@@ -13,18 +13,7 @@
     max-width: 850px;
   }
 }
-body{
-  background-color: antiquewhite;
-}
-a {
-  color: #007000;
-}
-a:hover{
-  text-decoration:underline;
-}
-.post > p {
+
+.post> .p {
   margin-bottom: 1rem;
-}
-.post > h1 {
-  font-size: 1.4rem;
 }

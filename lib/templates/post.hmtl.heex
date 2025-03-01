@@ -1,10 +1,15 @@
 <.layout>
-<h2> A post </h2>
-
-<%= raw @post.body %>
-<ul>
-  <li :for={ topic <- @post.topics || []}>
-    <a href={"/topics/#{topic}.html"}> <%= topic %> </a>
-  </li>
-</ul>
+<div class="sm:flex w-full">
+  <div class="post sm:w-4/5 mb-10">
+    <%= raw @post.body %>
+  </div>
+  <div class="topics sm:w-1/5 ml-10 border-lg">
+    <p class="text-md font-bold mb-5">Related topics</p>
+    <ul>
+      <li :for={ topic <- @post.topics || []} class="sm:text-right">
+        <a href={"/topics/#{topic}.html"}> <%= topic %> </a>
+      </li>
+    </ul>
+  </div>
+</div>
 </.layout>

@@ -2,7 +2,15 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: [
     "./**/*.js",
-    "../lib/personal_website.ex",
+    "../lib/templates/*.heex",
+  ],
+  safelist: ["dark"],
+  darkMode: "class",
+  plugins: [
+    require("@tailwindcss/typography")({
+      modifiers: [],
+    }),
+    require("@tailwindcss/forms"),
   ],
   theme: {
     fontFamily: {
@@ -152,12 +160,6 @@ module.exports = {
         },
       }),
     },
-  },
-  plugins: [
-    require("@tailwindcss/typography")({
-      modifiers: [],
-    }),
-    require("@tailwindcss/forms"),
-  ],
+  }
 };
 

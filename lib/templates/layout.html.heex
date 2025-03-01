@@ -16,7 +16,6 @@
       name="description"
       content="Discussing systems, methologies, progress and life choices of the author"
     />
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
     <meta property="og:site_name" content="Zukini Systems" />
    
     <link rel="stylesheet" href="/assets/app.css">
@@ -36,11 +35,16 @@
     </script>
     <!--Alpine Js V3-->
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
   </head>
-  <body>
-    <h1>Zukini</h1>
-    <main>
-    <%= render_slot(@inner_block)%>
+  <body class>
+    <div class='pl-10 pb-4'>
+      <a href="/">
+        <img src="/assets/img/logo-long.png" class="w-1/6 mt-4" alt="logo" />
+      </a>
+    </div>
+    <main class="container mx-auto pt-10">
+      <%= render_slot(@inner_block)%>
     </main>
   </body>
 </html>
