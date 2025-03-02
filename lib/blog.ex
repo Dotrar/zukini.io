@@ -10,11 +10,13 @@ defmodule Zukini.Blog do
       :topics,
       :date,
       :body,
-      :path
+      :path,
+      :url
     ]
 
     def build(filename, attrs, body) do
       path = Path.rootname(filename) <> ".html"
+      url = Path.join(["/", path])
 
       for_file_attrs(attrs, filename)
       |> check_non_empty_list(:topics)
@@ -22,7 +24,7 @@ defmodule Zukini.Blog do
 
       struct!(
         __MODULE__,
-        [path: path, body: body] ++ Map.to_list(attrs)
+        [path: path, body: body, url: url] ++ Map.to_list(attrs)
       )
     end
   end
@@ -39,18 +41,20 @@ defmodule Zukini.Blog do
       :related_topics,
       :related_systems,
       :related_logs,
-      :path
+      :path,
+      :url
     ]
 
     def build(filepath, attrs, body) do
       path = Path.rootname(filepath) <> ".html"
+      url = Path.join(["/", path])
 
       for_file_attrs(attrs, filepath)
       |> check_date_defined(:last_updated)
 
       struct!(
         __MODULE__,
-        [path: path, body: body] ++ Map.to_list(attrs)
+        [path: path, body: body, url: url] ++ Map.to_list(attrs)
       )
     end
   end
@@ -62,18 +66,20 @@ defmodule Zukini.Blog do
       :topics,
       :date,
       :body,
-      :path
+      :path,
+      :url
     ]
 
     def build(filename, attrs, body) do
       path = Path.rootname(filename) <> ".html"
+      url = Path.join(["/", path])
       {date_str, _slug} = path |> Path.basename() |> String.split_at(10)
 
       date = Date.from_iso8601!(date_str)
 
       struct!(
         __MODULE__,
-        [path: path, body: body, date: date] ++ Map.to_list(attrs)
+        [path: path, body: body, date: date, url: url] ++ Map.to_list(attrs)
       )
     end
   end
@@ -86,8 +92,13 @@ defmodule Zukini.Blog do
       [build: Log, from: "logs/**/*.md", as: :logs]
     ]
 
-  def all_systems, do: @systems
-  def all_logs, do: @logs
+  defp reverse_chronological(data, term \\ :date) when is_atom(term) do
+    data
+    |> Enum.sort(&(Date.compare(Map.get(&1, term), Map.get(&2, term)) != :lt))
+  end
+
+  def all_systems, do: reverse_chronological(@systems)
+  def all_logs, do: reverse_chronological(@logs)
   defp all_topics, do: @topics
 
   def build_topics(posts) do

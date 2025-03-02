@@ -1,5 +1,6 @@
 %{
   title: "Sorting through poverty",
+  description: "Finding something",
   topics: ~w(politics poverty),
 }
 ---

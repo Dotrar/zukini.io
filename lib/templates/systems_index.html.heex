@@ -1,3 +1,8 @@
 <.layout>
 <h2> Systems </h2>
+<ul>
+  <li :for={system <- @systems}>
+    <a href={system.url}> <%= system.title %> </a>
+  </li>
+</ul>
 </.layout>

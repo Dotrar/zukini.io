@@ -22,4 +22,5 @@ zukini-*.tar
 # Temporary files, for example, from tests.
 /tmp/
 
-./site/
+
+.DS_Store
