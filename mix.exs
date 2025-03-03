@@ -15,7 +15,8 @@ defmodule Zukini.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      mod: {Zukini.Application, []},
+      extra_applications: [:logger, :ranch]
     ]
   end
 
@@ -24,6 +25,7 @@ defmodule Zukini.MixProject do
     [
       {:nimble_publisher, "~> 0.1.3"},
       {:phoenix_live_view, "~> 0.18.2"},
+      {:plug_cowboy, "~> 2.0"},
       {:esbuild, "~> 0.5"},
       {:tailwind, "~> 0.1.8"}
       # {:dep_from_hexpm, "~> 0.3.0"},
@@ -33,7 +35,8 @@ defmodule Zukini.MixProject do
 
   defp aliases() do
     [
-      "site.build": ["build", "tailwind default --minify", "esbuild default --minify"]
+      "site.build": ["build", "tailwind default --minify", "esbuild default --minify"],
+      devserver: ["phx.server"]
     ]
   end
 end
