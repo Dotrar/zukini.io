@@ -23,7 +23,7 @@ defmodule Zukini.Publisher do
 
       entries =
         for path <- paths do
-          case parse_contents!(path, File.read!(path), nil) do
+          case parse_contents!(path, File.read!(path)) do
             {attrs, body} ->
               body =
                 path
@@ -36,7 +36,7 @@ defmodule Zukini.Publisher do
 
               builder.build(path, attrs, body)
 
-            {} ->
+            _ ->
               nil
           end
         end
@@ -48,13 +48,13 @@ defmodule Zukini.Publisher do
     |> Enum.unzip()
   end
 
-  defp parse_contents!(path, contents, nil) do
+  defp parse_contents!(path, contents) do
     case parse_contents(path, contents) do
       {:ok, attrs, body} ->
         {attrs, body}
 
       {:warn, message} ->
-        IO.puts("WARN: " <> message)
+        IO.puts("WARN: #{message}")
 
       {:error, message} ->
         raise """
@@ -70,10 +70,6 @@ defmodule Zukini.Publisher do
 
         """
     end
-  end
-
-  defp parse_contents!(path, contents, parser_module) do
-    parser_module.parse(path, contents)
   end
 
   defp parse_contents(path, contents) do

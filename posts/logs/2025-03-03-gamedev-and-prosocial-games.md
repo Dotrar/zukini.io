@@ -4,7 +4,7 @@
   topics: ~w(game-dev prosocial poverty),
 }
 ---
-found thinktank
+found thinktank.
 interest in game design
 breaking poverty
 ---

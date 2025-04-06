@@ -5,9 +5,11 @@
       <a href={post.path}
         class="hover:underline ml-5"
       >
-      <%= post.date %>,<%= post.title %>
-
-      <em> <%= post.description %> </em>
+      <p>
+        <%= post.date %>,
+        <%= post.title %>
+      </p>
+      <em class=""> <%= post.description %> </em>
       </a>
     </li>
   </ul>
