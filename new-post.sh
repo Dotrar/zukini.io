@@ -11,5 +11,5 @@ def main [text] {
 ---
 
 ' | save $file
-  hx $file
+  $EDITOR $file
 }

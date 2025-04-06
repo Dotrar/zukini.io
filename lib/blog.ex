@@ -99,8 +99,12 @@ defmodule Zukini.Blog do
 
   def all_systems, do: reverse_chronological(@systems)
   def all_logs, do: reverse_chronological(@logs)
-  defp all_topics, do: @topics
+  defp written_topics, do: @topics
 
+  @doc """
+  This function will take the combination of all the written topics
+  as well as all the inferred topics from various log and system posts
+  """
   def build_topics(posts) do
     topic_index =
       for post <- posts,
@@ -110,7 +114,7 @@ defmodule Zukini.Blog do
       end
 
     written_data =
-      Enum.map(all_topics(), fn e ->
+      Enum.map(written_topics(), fn e ->
         {Path.basename(e.path, ".html"), e}
       end)
       |> Enum.into(%{})
